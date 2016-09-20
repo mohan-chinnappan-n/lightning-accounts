@@ -1,0 +1,28 @@
+<aura:component controller="mohansundar.AcctOpptyCtrl">
+
+    <!--
+       The account attribute is defined to hold the displayed Account.
+    -->
+    <aura:attribute name="account" type="Account"
+                    default="{'sobjectType': 'Account'}"/>
+    <!--
+     In the AcctOppty component, we wrapped each Account in the list with a
+       <a href="{! '#account/' + acct.Id }"> anchor tag
+         that sets the page hashtag to #account/ followed by the
+         account id of the clicked account.
+
+        In this component, the locationChange handler is defined to
+        listen to hashtag changes,
+        and execute the controller's locationChange() when it happens.
+    -->
+    <aura:handler event="aura:locationChange" action="{!c.locationChange}"/>
+    
+    <div class="details">
+        <h1>{!v.account.Name}</h1>
+        <h3>{!v.account.BillingCity}</h3>
+        <h3>{!v.account.BillingState}</h3>
+        <h3>{!v.account.BillingCountry}</h3>
+    </div>
+
+    <button data-accountname ="{!v.account.Name}" class="btn btn-primary" onclick="{!c.createNewOppty}">Create Opportunity</button>
+</aura:component>

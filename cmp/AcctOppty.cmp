@@ -1,0 +1,34 @@
+<aura:component controller="mohansundar.AcctOpptyCtrl">
+
+    <aura:attribute name="acctColumns" type="String[]" default="['Id', 'Name', 'Billing City' ]"/>
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+    <aura:attribute name="accounts" type="Account[]" />
+
+
+    <table class="table table-bordered table-striped">
+        <thead>
+            <tr>
+                <aura:iteration items="{!v.acctColumns}" var="acctColumn">
+                    <th>{!acctColumn}</th>
+                </aura:iteration>
+            </tr>
+        </thead>
+        <tbody>
+
+            <aura:iteration items="{!v.accounts}" var="account">
+                <tr>
+                 <td>
+                    <a href="{! '#account/' + account.Id }">
+                    <p>{!account.Id }</p>
+                </a>
+                 </td>
+                    <td>{!account.Name}</td>
+                     <td>{!account.BillingCity}</td>
+                </tr>
+            </aura:iteration>
+
+
+        </tbody>
+
+    </table>
+</aura:component>

@@ -1,0 +1,24 @@
+<aura:component >
+
+    <aura:handler event="mohansundar:NewOpptyCreationRequest" action="{!c.newOpptyCreation}"/>
+
+    <aura:attribute name="accountName" type="String"/>
+    <aura:attribute name="style" type="String" default="display:none;" />
+
+
+    <form aura:id ="opptyForm" class='entryForm' style="{!v.style}">
+        <div class="form-group">
+            <label for="AccountName">Account Name</label>
+            <input type="text" class="form-control" id="accountName" value="{!v.accountName}" placeholder="Account Name"/>
+        </div>
+
+        <div class="form-group">
+            <label for="OpportunityName">Opportunity Name</label>
+            <input type="text" class="form-control" id="OpportunityName"  placeholder="Opportunity Name"/>
+        </div>
+
+        <button type="submit" class="btn btn-default">Save</button>
+    </form>
+
+
+</aura:component>

@@ -1,0 +1,19 @@
+public with sharing  class AcctOpptyCtrl {
+
+    @AuraEnabled
+    public static List<Account> findAllAccounts() {
+
+        String soqlStr = ' SELECT Id, Name, BillingCity   FROM ACCOUNT LIMIT 10';
+
+        return database.query(soqlstr);
+        // TODO: Add errror handling...
+    }
+
+    @AuraEnabled
+    public static Account findById( String accountId) {
+        return [SELECT Id, Name, BillingCity , BillingState, BillingCountry
+                    FROM
+                    Account  WHERE Id = :accountId];
+       // TODO: Add errror handling...
+    }
+}
